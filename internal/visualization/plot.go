@@ -5,7 +5,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/BetelgeuseCompanionTracker/internal/simulation"
+	"../simulation"
 )
 
 // PlotOrbit plots the orbital path of a celestial body
