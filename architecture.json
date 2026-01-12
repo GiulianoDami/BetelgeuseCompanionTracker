@@ -1,0 +1,37 @@
+{
+    "language": "Go",
+    "dependency_file": "go.mod",
+    "dependencies": [],
+    "files": [
+        {
+            "path": "main.go",
+            "description": "Entry point and command-line argument parsing",
+            "exports": ["func main()"]
+        },
+        {
+            "path": "internal/simulation/simulation.go",
+            "description": "Core orbital dynamics and atmospheric wake simulation logic",
+            "exports": ["type OrbitalSimulator struct", "func (os *OrbitalSimulator) Run() error"]
+        },
+        {
+            "path": "internal/analysis/analysis.go",
+            "description": "Processing observational data to detect companion signatures",
+            "exports": ["type DataAnalyzer struct", "func (da *DataAnalyzer) DetectWakes() error"]
+        },
+        {
+            "path": "internal/models/models.go",
+            "description": "Data structures representing stars, orbits, and observations",
+            "exports": ["type Star struct", "type OrbitParams struct", "type Observation struct"]
+        },
+        {
+            "path": "internal/visualization/plot.go",
+            "description": "Functions for plotting orbital paths and wake patterns",
+            "exports": ["func PlotOrbit(orbit OrbitParams) error", "func PlotWake(wakeData []float64) error"]
+        },
+        {
+            "path": "cmd/betelgeuse-tracker/main.go",
+            "description": "Command-line interface implementation",
+            "imports_from_other_files": ["../internal/simulation", "../internal/analysis", "../internal/visualization", "../internal/models"]
+        }
+    ]
+}
